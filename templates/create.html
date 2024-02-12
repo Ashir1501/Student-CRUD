@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>STUDENT CRUD APP: Enter Details</h1>
+    <form method="post" action="{% url 'create_new' %}">
+        {% csrf_token %}
+        <label for="name">Name: </label>
+        <input id="name" type="text" name="name"><br/>
+        <label for="age">age: </label>
+        <input type="number" id="age" name="age" max="150" min="5"><br/>
+        <label for="phone">phone: </label>
+        <input type="tel" id="phone" name="phone" maxlength="10" pattern="\d{10}" placeholder="10-digit"><br/>
+        <label for="course">Course: </label>
+        <input type="text" id="course" name="course"><br/>
+        <button type="submit">SUBMIT</button>
+    </form>
+{% endblock %}

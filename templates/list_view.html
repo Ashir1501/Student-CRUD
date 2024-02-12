@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Student CRUD App: View Details</h1>
+<ul>
+    {% for info in display %}
+        <li>Name:{{ info.name }} Age:{{ info.age }} Phone:{{info.phone}} Course:{{ info.course }}
+            <a href="{% url 'update_list' pk=info.pk %}"><button>Update</button></a>
+            <a href="{% url 'delete_info' pk=info.pk %}"><button>Delete</button></a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'create_new' %}"><button>CREATE LIST</button></a>
+{% endblock %}

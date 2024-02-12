@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Please Update Necessary Fields</h1>
+<form method="post" action="{% url 'update_list' pk=update_list.id %}">
+    {% csrf_token %}
+    Name: <input type="text" name="new_name" value="{{ update_list.name }}"><br/>
+    Age: <input type="number" name="new_age" value="{{ update_list.age }}"><br/>
+    Phone: <input type="tel" name="new_phone" value="{{ update_list.phone }}" maxlength="10" pattern="\d{10}" placeholder="10-digit"><br/>
+    Course: <input type="text" name="new_course" value="{{ update_list.course }}"><br/>
+    <button type="submit">SAVE</button>
+</form>
+{% endblock %}
